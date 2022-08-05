@@ -104,24 +104,85 @@ public class StepDefinitions {
         Assert.assertEquals("Personal information",softwareTestingCourseSiteEnrollmentPage.getPersonalInformationHeader());
     }
 
+    @When("I fill in the Email field with {string}")
+    public void i_fill_in_the_email_field_with(String string) {
+        softwareTestingCourseSiteEnrollmentPage.getContactInformationHeader();
+        softwareTestingCourseSiteEnrollmentPage.inputFieldOne(string);
+
+    }
+
+    @When("I fill in the Phone field with {string}")
+    public void i_fill_in_the_phone_field_with(String string) {
+        softwareTestingCourseSiteEnrollmentPage.inputFieldTwo(string);
+
+    }
+
+    @When("I fill in the Country field with {string}")
+    public void i_fill_in_the_country_field_with(String string) {
+        softwareTestingCourseSiteEnrollmentPage.inputFieldThree(string);
+
+    }
+
+    @When("I fill in the City field with {string}")
+    public void i_fill_in_the_city_field_with(String string) {
+        softwareTestingCourseSiteEnrollmentPage.inputFieldFour(string);
+
+    }
+
+    @When("I fill in the PostCode field with {string}")
+    public void i_fill_in_the_post_code_field_with(String string) {
+        softwareTestingCourseSiteEnrollmentPage.inputFieldFive(string);
+
+    }
+
+    @When("click Contact informations next button")
+    public void click_contact_informations_next_button() {
+            softwareTestingCourseSiteEnrollmentPage.clickOnNextButton2();
+
+
+    }
+
+    @Then("the Course Options page should appear")
+    public void the_course_options_page_should_appear() {
+        Assert.assertEquals("Course options",softwareTestingCourseSiteEnrollmentPage.getCourseOptionHeader());
+    }
+
 
         @When("I click the {int} button")
-        public void i_click_the_button(Integer int1) {
-        Utils.scrollToElement(driver, softwareTestingCourseSite.getFaqHeader());
-        SoftwareTestingCourseSite.clickOnFaqButtons1;
+        public void i_click_the_button(int number) {
+            Utils.scrollToElement(driver, softwareTestingCourseSite.getFaqHeader());
+            softwareTestingCourseSite.clickOnQuestionButton(number);
         }
 
-        @When("I then click the {int} button")
-        public void i_then_click_the_button(Integer int2) {
-
+        @And("I click the <int> button")
+        public void I_click_the_button(int number){
+        softwareTestingCourseSite.clickOnQuestionButton(number);
         }
+
         @Then("the {int} button should be closed")
-        public void the_button_should_be_closed(Integer int1) {
+        public void the_button_should_be_closed(int number) {
+        softwareTestingCourseSite.clickOnQuestionButton(number);
+        }
+
+        @Then("the {int} should be expanded")
+        public void the_should_be_expanded(int number) {
+        softwareTestingCourseSite.clickOnQuestionButton(number);
+        }
+
+        @Then("the {int} button should expand and the page dynamically rearrange itself")
+        public void the_button_should_expand_and_the_page_dynamically_rearrange_itself(int number) {
+        softwareTestingCourseSite.clickOnQuestionButton(number);
 
         }
-        @Then("the {int} should be expanded")
-        public void the_should_be_expanded(Integer int2) {
 
+        @When("I click {int} button that is already expanded")
+        public void i_click_button_that_is_already_expanded(int number) {
+            softwareTestingCourseSite.clickOnQuestionButton(number);
+        }
+
+        @Then("the {int} button should revert back to the initial state")
+        public void the_button_should_revert_back_to_the_initial_state(int number) {
+            softwareTestingCourseSite.clickOnQuestionButton(number);
         }
     @After
     public void cleanUp(){

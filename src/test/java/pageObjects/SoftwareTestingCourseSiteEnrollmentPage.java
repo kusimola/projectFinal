@@ -26,11 +26,18 @@ public class SoftwareTestingCourseSiteEnrollmentPage {
     @FindBy(xpath = "/html/body/div/div/section/div/form/div[1]/button")
     private WebElement NextButton;
 
+    @FindBy(xpath = "/html/body/div/div/section/div/form/div[2]/button[2]")
+    private WebElement NextButton2;
+
     @FindBy(xpath = "/html/body/div/div/section/div/form/div[2]/h3")
     private WebElement contactInformationHeader;
 
     @FindBy(xpath = "/html/body/div/div/section/div/form/div[1]/h3")
     private WebElement personalInformationHeader;
+
+    @FindBy(xpath = " /html/body/div/div/section/div/form/div[3]/h3")
+    private WebElement courseOptionHeader;
+
 
 
     public SoftwareTestingCourseSiteEnrollmentPage(WebDriver driver) {
@@ -60,7 +67,10 @@ public class SoftwareTestingCourseSiteEnrollmentPage {
 
     public String getPersonalInformationHeader() {return this.personalInformationHeader.getText();}
 
+    public String getCourseOptionHeader() {return this.courseOptionHeader.getText();}
+
     public void clickOnNextButton(){this.NextButton.submit();}
+    public void clickOnNextButton2(){this.NextButton2.submit();}
 
 
 
