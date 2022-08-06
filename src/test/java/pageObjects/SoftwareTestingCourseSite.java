@@ -76,7 +76,7 @@ public class SoftwareTestingCourseSite {
 
     // private WebElement nextButton(int index){return driver findElements(By.className("next-btn")).get(index);}
     private WebElement selectQuestionFromFaq(int questionNumber) {
-        return FaqSection.findElements(By.className("accordion-item")).get(questionNumber);
+        return FaqSection.findElements(By.cssSelector(".accordion-item")).get(questionNumber);
     }
 
     private WebElement getQuestionButton(int questionNumber) {

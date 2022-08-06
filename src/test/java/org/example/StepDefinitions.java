@@ -1,12 +1,15 @@
 package org.example;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import org.junit.Assert;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.SoftwareTestingCourseSite;
@@ -184,8 +187,118 @@ public class StepDefinitions {
         public void the_button_should_revert_back_to_the_initial_state(int number) {
             softwareTestingCourseSite.clickOnQuestionButton(number);
         }
+
+
+
+
+    @When("I click an options from the Course Options list")
+    public void i_click_an_options_from_the_course_options_list() {
+
+    }
+
+    @When("the bullet turns blue")
+    public void the_bullet_turns_blue() {
+
+    }
+
+    @When("click Course Options next button")
+    public void click_course_options_next_button() {
+
+    }
+
+    @Then("the Payment information page should appear")
+    public void the_payment_information_page_should_appear() {
+
+    }
+
+
+
+
+    @When("I fill in the card holder name with {string}")
+    public void i_fill_in_the_card_holder_name_with(String string) {
+
+    }
+
+    @When("I fill in the Crad number field with {string}")
+    public void i_fill_in_the_crad_number_field_with(String string) {
+
+    }
+
+    @When("I fill in the CVC field with {string}")
+    public void i_fill_in_the_cvc_field_with(String string) {
+
+    }
+
+    @When("I select a month from expiry date {string}")
+    public void i_select_a_month_from_expiry_date(String string) {
+
+    }
+
+    @When("I select a year from expiry date {string}")
+    public void i_select_a_year_from_expiry_date(String string) {
+
+    }
+
+    @When("click Payment information next button")
+    public void click_payment_information_next_button() {
+
+    }
+
+    @Then("the Success page should appear")
+    public void the_success_page_should_appear() {
+
+    }
+
+
+
+
+
+    @When("I click the {string} button")
+    public void i_click_the_button(String string) {
+
+    }
+
+    @Then("the Software testing course website's homepage should appear")
+    public void the_software_testing_course_website_s_homepage_should_appear() {
+
+    }
+
+
+
+
+    @When("I complete the newsletter field with a email")
+    public void i_complete_the_newsletter_field_with_a_email() {
+
+    }
+
+    @When("click submit button")
+    public void click_submit_button() {
+
+    }
+
+    @Then("a pop up window appears with te message {string}")
+    public void a_pop_up_window_appears_with_te_message(String string) {
+
+    }
+
+
+    @When("I complete the newsletter field with a text {string}")
+    public void i_complete_the_newsletter_field_with_a_text(String string) {
+
+    }
+
+    @Then("a red outline should appear around the field")
+    public void a_red_outline_should_appear_around_the_field() {
+
+    }
+
+
     @After
-    public void cleanUp(){
+    public void cleanUp(Scenario scenario){
+        if (scenario.isFailed()) {
+            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "name");
+        }
         driver.quit();
     }
 
